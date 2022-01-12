@@ -1,82 +1,107 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import Content from '../components/content'
+import React, { useEffect } from 'react'
+import Modal from '../components/modal'
+
+const pages = [
+  {
+    'name': 'My Papers',
+    'link': 'papers',
+  },
+  {
+    'name': 'About Me',
+    'link': 'about',
+  },
+  {
+    'name': 'My Pervious Works',
+    'link': 'pervious',
+  },
+  {
+    'name': "My Current Work",
+    'link': 'current',
+  },
+]
 
 export default function Home() {
+
+
+
+
+
+
+
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Nicholas J. Dimonaco</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.min.css" />
+        <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script>
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="flex flex-col justify-center mx-5 my-6 ">
+        <div className="flex justify-center">
+          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl tracking-tight lg:text-6xl">
+            Nicholas J. Dimonaco
+          </p>
+          </div>
+          <div className='flex justify-center'>
+          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+            Learn about me and my work.
+          </p>
         </div>
-      </main>
+      </div>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+        <ul className='grid  md:grid-cols-2 grid-cols-1'>
+        {pages.map((page) => (
+          <div className=''>
+
+            <li key={page.link} className="my-5 mx-6 bg-white rounded-lg shadow divide-y divide-gray-200 ">
+              <div className="w-full items-center justify-between p-6 space-x-6">
+                <div className="flex-1 truncate">
+                  <div className="flex items-center space-x-3">
+                    <h3 className="text-gray-900 text-sm font-medium truncate">{page.name}</h3>
+
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="-mt-px flex divide-x divide-gray-200">
+                  <div className="w-0 flex-1 flex">
+                    <Link
+                      href={page.link}>
+                      <a target={'(_blank)'}
+                        className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
+                      >
+                        {/* <MailIcon className="w-5 h-5 text-gray-400" aria-hidden="true" /> */}
+            
+
+
+
+
+
+        
+                        <svg className="w-5 h-5 text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </div>
+          
+        ))}
+        </ul>
+
+
     </div>
   )
 }
