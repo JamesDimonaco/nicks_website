@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import Modal from '../../components/modal'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 
 const papers = [
@@ -61,8 +61,8 @@ export default function Papers() {
                         <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl tracking-tight lg:text-6xl">
                             Nicholas J. Dimonaco
                         </p>
-                        </div>
-                        <div className='flex justify-center'>
+                    </div>
+                    <div className='flex justify-center'>
                         <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
                             Start building for free, then add a site plan to go live. Account plans unlock additional features.
                         </p>
@@ -71,56 +71,58 @@ export default function Papers() {
 
 
                 <div className="">
+                    <ul role="list" className="flex flex-col mx-6">
 
-                    <ul  role="list" className="flex flex-col mx-6">
                         {papers.map((paper) => {
                             const [open, setOpen] = useState(false)
-                            
-                            return(
-                            <div className='flex flex-col'>
 
-                            <Modal close={() => setOpen(false)} open={open} content={paper}/>
+                            return (
+                                <div className='flex flex-col'>
+
+                                    <Modal close={() => setOpen(false)} open={open} content={paper} />
 
 
-                                <li key={paper.doi} className="my-5 mx-6 bg-white rounded-lg shadow divide-y divide-gray-200">
-                                    <div onClick={() => setOpen(true)}  data-tooltip-target={paper.doi} className="hover:cursor-pointer w-full flex items-center justify-between p-6 space-x-6">
-                                        <div className="flex-1 truncate">
-                                            <div className="flex items-center space-x-3">
-                                                <h3 className="text-gray-900 text-sm font-medium truncate">{paper.title}</h3>
+                                    <li key={paper.doi} className="my-5 mx-6 bg-white rounded-lg shadow divide-y divide-gray-200">
+                                        <div onClick={() => setOpen(true)} data-tooltip-target={paper.doi} className="hover:cursor-pointer w-full flex items-center justify-between p-6 space-x-6">
+                                            <div className="flex-1 truncate">
+                                                <div className="flex items-center space-x-3">
+                                                    <h3 className="text-gray-900 text-sm font-medium truncate">{paper.title}</h3>
 
+                                                </div>
+                                                <p className="mt-1 text-gray-500 text-sm truncate">{paper.abstract}</p>
                                             </div>
-                                            <p className="mt-1 text-gray-500 text-sm truncate">{paper.abstract}</p>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div className="-mt-px flex divide-x divide-gray-200">
-                                            <div className="w-0 flex-1 flex">
-                                                <Link
-                                                    href={paper.url}>
-                                                    <a target={'(_blank)'}
-                                                        className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
+                                        <div>
+                                            <div className="-mt-px flex divide-x divide-gray-200">
+                                                <div className="w-0 flex-1 flex">
+                                                    <Link
+                                                        href={paper.url}>
+                                                        <a target={'(_blank)'}
+                                                            className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
+                                                        >
+                                                            {/* <MailIcon className="w-5 h-5 text-gray-400" aria-hidden="true" /> */}
+                                                            <span className="ml-3">Go to paper</span>
+                                                        </a>
+                                                    </Link>
+                                                </div>
+                                                <div className="-ml-px w-0 flex-1 flex">
+                                                    <a
+                                                        href={`tel:${paper.telephone}`}
+                                                        className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
                                                     >
-                                                        {/* <MailIcon className="w-5 h-5 text-gray-400" aria-hidden="true" /> */}
-                                                        <span className="ml-3">Go to paper</span>
+                                                        {/* <PhoneIcon className="w-5 h-5 text-gray-400" aria-hidden="true" /> */}
+                                                        <span className="ml-3">Call</span>
                                                     </a>
-                                                </Link>
-                                            </div>
-                                            <div className="-ml-px w-0 flex-1 flex">
-                                                <a
-                                                    href={`tel:${paper.telephone}`}
-                                                    className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
-                                                >
-                                                    {/* <PhoneIcon className="w-5 h-5 text-gray-400" aria-hidden="true" /> */}
-                                                    <span className="ml-3">Call</span>
-                                                </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </div>
+                                    </li>
 
-                        )})}
+                                </div>
+                            )
+                        })}
                     </ul>
+
                 </div>
             </div>
 
