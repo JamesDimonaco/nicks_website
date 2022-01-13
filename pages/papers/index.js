@@ -82,12 +82,11 @@ export default function Papers() {
                             <Modal close={() => setOpen(false)} open={open} content={paper}/>
 
 
-                                <li onClick={() => setOpen(true)} key={paper.doi} className="my-5 mx-6 bg-white rounded-lg shadow divide-y divide-gray-200">
-                                    <div data-tooltip-target={paper.doi} className="w-full flex items-center justify-between p-6 space-x-6">
+                                <li key={paper.doi} className="my-5 mx-6 bg-white rounded-lg shadow divide-y divide-gray-200">
+                                    <div onClick={() => setOpen(true)}  data-tooltip-target={paper.doi} className="hover:cursor-pointer w-full flex items-center justify-between p-6 space-x-6">
                                         <div className="flex-1 truncate">
                                             <div className="flex items-center space-x-3">
                                                 <h3 className="text-gray-900 text-sm font-medium truncate">{paper.title}</h3>
-
 
                                             </div>
                                             <p className="mt-1 text-gray-500 text-sm truncate">{paper.abstract}</p>
