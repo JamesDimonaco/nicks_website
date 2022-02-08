@@ -64,20 +64,18 @@ export default function Papers() {
                     </div>
                     <div className='flex justify-center'>
                         <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                            Start building for free, then add a site plan to go live. Account plans unlock additional features.
+                            Please feel free to read through my {papers.length} academic papers.
                         </p>
                     </div>
                 </div>
 
-
                 <div className="">
                     <ul role="list" className="flex flex-col mx-6">
-
                         {papers.map((paper) => {
                             const [open, setOpen] = useState(false)
 
                             return (
-                                <div className='flex flex-col'>
+                                <div key={paper.doi} className='flex flex-col'>
 
                                     <Modal close={() => setOpen(false)} open={open} content={paper} />
 
@@ -106,18 +104,11 @@ export default function Papers() {
                                                     </Link>
                                                 </div>
                                                 <div className="-ml-px w-0 flex-1 flex">
-                                                    <a
-                                                        href={`tel:${paper.telephone}`}
-                                                        className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
-                                                    >
-                                                        {/* <PhoneIcon className="w-5 h-5 text-gray-400" aria-hidden="true" /> */}
-                                                        <span className="ml-3">Call</span>
-                                                    </a>
+                                                    <span className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 ml-3">release date: {paper.date}</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-
                                 </div>
                             )
                         })}
